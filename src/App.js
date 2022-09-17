@@ -6,12 +6,13 @@ import ContactUs from './Components/ContactUs/ContactUs';
 import Gallary from './Components/Gallary/Gallary';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import Footer from './Components/Shared/Footer';
 import NavBar from './Components/Shared/NavBar';
 import NotFound from './Components/Shared/NotFound';
 
 const App =() => {
   return (
-    <div className="App container  mx-auto">
+    <div className="App ">
       <NavBar/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
@@ -22,6 +23,7 @@ const App =() => {
         <Route path='/alumni' element={<Alumni/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
       </Routes>
+      <Footer/>
     </div>
   );
 }

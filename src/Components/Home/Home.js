@@ -6,7 +6,7 @@ import HeroSection from './HeroSection';
 
 const Home = () => {
     return (
-        <div>
+        <div className='container  mx-auto'>
           <HeroSection/>
           <About/>
           <Gallary/>

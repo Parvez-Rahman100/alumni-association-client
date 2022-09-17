@@ -1,25 +1,28 @@
 import React from 'react';
+import { Icon } from '@iconify/react';
+
 
 const Contact = () => {
     return (
         <div>
             <div id='contact' className="hero min-h-screen bg-base-100">
-  <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="hero-content justify-between lg:flex-row md:flex-col">
     <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold text-green-600">Contact Me</h1>
-      <p className="py-4">Always available for work if the right project comes along, Feel free to contact me!</p>
+      <h1 className="text-5xl font-bold text-green-600">Contact Us</h1>
+      <p className="py-4">Always available for work if the right project comes along, Feel free to contact us!</p>
       
-      <h4><i style={{fontSize:'30px'}} className="m-2 fa-solid fa-at"></i> <span className='text-green-600 font-bold'>iamparvezrahman@gmail.com</span></h4>
-      <h4><i style={{fontSize:'30px'}} className="m-2 fa-solid fa-phone"></i> <span className='text-green-600 font-bold'>+8801686172299</span></h4>
+      <h4><Icon icon="ic:baseline-alternate-email" /><p className='text-green-600 font-bold'>iamparvezrahman@gmail.com</p></h4>
+      <h4><Icon icon="bxs:phone-call" /> <span className='text-green-600 font-bold'>+8801686172299</span></h4>
+      <h4><Icon icon="akar-icons:location" /><span className='text-green-600 font-bold'>16 Indira Road, Dhaka-1215</span></h4>
       <div className='flex lg:justify-start justify-center items-center my-4'>
-        <a target='_blank' rel="noreferrer" href='https://github.com/Parvez-Rahman100'><i className="mr-4 ficon fa-brands fa-github"></i></a>
-        <a target='_blank' rel="noreferrer" href='https://www.linkedin.com/in/parvez-miah-945910229/'><i className="mr-4 ficon fa-brands fa-linkedin"></i></a>
-        <a target='_blank' rel="noreferrer" href='https://www.facebook.com/parvez.rahman.144/'><i className="mr-4 ficon fa-brands fa-facebook"></i></a>
-        <a target='_blank' rel="noreferrer" href='https://www.instagram.com/i_amparvezrahman/'><i className="mr-4 ficon fa-brands fa-instagram"></i></a>
+        <a target='_blank' rel="noreferrer" href='https://github.com/Parvez-Rahman100'><Icon className=' mx-7 w-10  h-6 mt-5' icon="fa:github" /></a>
+        <a target='_blank' rel="noreferrer" href='https://www.linkedin.com/in/parvez-miah-945910229/'><Icon className=' mx-7 w-10  h-6 mt-5' icon="line-md:linkedin" /></a>
+        <a target='_blank' rel="noreferrer" href='https://www.facebook.com/parvez.rahman.144/'><Icon className=' mx-7 w-10  h-6 mt-5' icon="akar-icons:facebook-fill" /></a>
+        <a target='_blank' rel="noreferrer" href='https://www.instagram.com/i_amparvezrahman/'><Icon className=' mx-7 w-10  h-6 mt-5' icon="akar-icons:instagram-fill" /></a>
       </div>
     </div>
     
-    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl mx-52 bg-base-100">
       <div className="card-body">
       <form action="https://formsubmit.co/iamparvezrahman@gmail.com" method='POST'>
       <div className="form-control">
@@ -36,7 +39,7 @@ const Contact = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Email</span>
+            <span className="label-text">Your Email</span>
           </label>
           <input type="text" name='email' placeholder="Email" className="input input-bordered" required/>
         </div>
