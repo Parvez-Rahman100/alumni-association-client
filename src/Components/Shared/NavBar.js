@@ -13,7 +13,7 @@ const NavBar = () => {
       <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about-us'>About Us</NavLink></li>
-        <li><NavLink to='/alumni'>Alumni</NavLink></li>
+        <li><NavLink to='/alumnus'>Alumnus</NavLink></li>
         <li><NavLink to='/gallary'>Gallary</NavLink></li>
         <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
         <li><NavLink to='/login'>Login | SignUp</NavLink></li>
@@ -28,7 +28,7 @@ const NavBar = () => {
     <ul className="menu menu-horizontal p-0">
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/about-us'>About Us</NavLink></li>
-        <li><NavLink to='/alumni'>Alumni</NavLink></li>
+        <li><NavLink to='/alumnus'>Alumnus</NavLink></li>
         <li><NavLink to='/gallary'>Gallary</NavLink></li>
         <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
         <li><NavLink to='/login'>Login | SignUp</NavLink></li>
