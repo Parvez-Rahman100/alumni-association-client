@@ -12,6 +12,10 @@
 .galdenoFont{
   font-family: 'Galdeano', sans-serif
 }
+.aluniBackground{
+  background-image: url('./Assests//alumniBackground.png');
+  background-size: cover;
+}
 
 .container{
   max-width: 1280px;

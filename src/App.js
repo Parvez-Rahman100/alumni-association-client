@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Alumni from './Alumni/Alumni';
+import Alumnus from './Alumni/Alumnus';
 import './App.css';
 import AboutUs from './Components/AboutUs/AboutUs';
 import ContactUs from './Components/ContactUs/ContactUs';
@@ -20,7 +20,7 @@ const App =() => {
         <Route path='/gallary' element={<Gallary/>}></Route>
         <Route path='/contact-us' element={<ContactUs/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
-        <Route path='/alumni' element={<Alumni/>}></Route>
+        <Route path='/alumni' element={<Alumnus/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
       </Routes>
       <Footer/>

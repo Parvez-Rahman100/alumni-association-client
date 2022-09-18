@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 
 const Footer = () => {
     return (
-        <div style={{backgroundColor:'rgba(203, 203, 203, 1)'}} className=' flex justify-between items-center'>
+        <div style={{backgroundColor:'rgba(203, 203, 203, 1)'}} className='flex justify-between items-center'>
             <div>
                 <p className=' text-center tracking-widest text-xl font-semibold'>Alumni Association</p>
                 <div className='flex lg:justify-start justify-center items-center my-4'>
