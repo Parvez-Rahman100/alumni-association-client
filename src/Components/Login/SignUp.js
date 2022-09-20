@@ -36,11 +36,10 @@ const SignUp = () => {
            const url = 'http://localhost:5000/register';
            const result = await axios.post(url,data)
            if(result?.data === false){
-            console.log(result);
+            alert('Please provide valid registration number')
             return;
             
            }else{
-            console.log("sniz",result);
             await createUserWithEmailAndPassword(data.email, data.password , data.regNumber);
             await updateProfile({ displayName: data.name });
             navigate('/');
