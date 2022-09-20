@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
@@ -27,7 +27,7 @@ const Login = () => {
         if (user) {
             navigate(from, { replace: true });
         }
-    }, [user,navigate])
+    }, [user,navigate,from])
 
     if (loading ) {
         return <Loading></Loading>
@@ -127,6 +127,7 @@ const Login = () => {
                     <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                 </form>
             </div>
+            <p>New to Alumni Association? <Link to='/signup' className=' text-gray-900'> Signup Now</Link> </p>
         </div>
     </div >
     );

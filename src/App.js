@@ -8,6 +8,7 @@ import Gallary from './Components/Gallary/Gallary';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import RequireAuth from './Components/Login/RequireAuth';
+import SignUp from './Components/Login/SignUp';
 import Footer from './Components/Shared/Footer';
 import NavBar from './Components/Shared/NavBar';
 import NotFound from './Components/Shared/NotFound';
@@ -23,6 +24,7 @@ const App =() => {
         <Route path='/contact-us' element={<ContactUs/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/alumnus' element={<RequireAuth><Alumnus/></RequireAuth>}></Route>
+        <Route path='/signup' element={<SignUp/>}></Route>
         <Route path='/all-alumnus' element={<AllAlumnus/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
       </Routes>
