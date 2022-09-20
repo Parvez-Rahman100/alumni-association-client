@@ -20,6 +20,12 @@
 .container{
   max-width: 1280px;
 }
+
+.backgroundImg{
+  background-image: url('http://excellencetally.com/webapp/Admin/assets/img/backgrounds/2.jpg');
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,8 +1,16 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Assests/logo.svg';
+import auth from '../../firebase.init';
 
 const NavBar = () => {
+  const [user] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+    
+};
     return (
   <div className="navbar sticky bg-base-100 ">
     <div className="navbar-start">
@@ -31,7 +39,7 @@ const NavBar = () => {
         <li><NavLink to='/alumnus'>Alumnus</NavLink></li>
         <li><NavLink to='/gallary'>Gallary</NavLink></li>
         <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
-        <li><NavLink to='/login'>Login | SignUp</NavLink></li>
+        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
     </ul>
   </div>
   

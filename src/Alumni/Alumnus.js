@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Alumni from './Alumni';
-import url from "../alumni.json"
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import useAlumnus from '../hooks/useAlumnus';
 
 const Alumnus = () => {
+  const [alumnus] = useAlumnus();
     const navigate = useNavigate()
     const [searchTitle, setSearchTitle] = useState("")
         const handleViewAllBtn = () =>{
@@ -17,7 +18,7 @@ const Alumnus = () => {
            <input onChange={(e) => setSearchTitle(e.target.value)} className=' block mx-auto w-72 h-12 my-7 border border-zinc-900 rounded-xl' type="text" placeholder="Search..."/>
            <div className='grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4'>
             {
-                url.slice(0,9)
+                alumnus.slice(0,9)
                 .filter((value) => {
                     if (searchTitle === "") {
                       return value;
