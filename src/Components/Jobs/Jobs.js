@@ -104,9 +104,7 @@ const Jobs = () => {
                                     }
                                 })}
                             />
-            </div>
-        
-    
+            </div>    
                 <div className="modal-action">
                 <label htmlFor="my-modal-6" className="btn btn-error">Cancle</label>
                 <input className=' btn btn-success' type="submit" />
