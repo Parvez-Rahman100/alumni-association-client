@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../Assests/logo.svg';
+import logo from '../../Assests/logo.png';
 import auth from '../../firebase.init';
 
 const NavBar = () => {
@@ -24,12 +24,13 @@ const NavBar = () => {
         <li><NavLink to='/alumnus'>Alumnus</NavLink></li>
         <li><NavLink to='/gallary'>Gallary</NavLink></li>
         <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
-        <li><NavLink to='/login'>Login | SignUp</NavLink></li>
+        <li><NavLink to='/jobs'>Jobs</NavLink></li>
+        <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
       </ul>
     </div>
     
     <Link to='/' className="btn btn-ghost normal-case text-xl">
-    <img className=' mx-3' src={logo} alt='logo'></img>
+    <img style={{width:'50px' ,height:'50px'}} className=' mx-3' src={logo} alt='logo'></img>
         Alumni Association</Link>
   </div>
   <div className="navbar-end hidden lg:flex">
@@ -39,6 +40,7 @@ const NavBar = () => {
         <li><NavLink to='/alumnus'>Alumnus</NavLink></li>
         <li><NavLink to='/gallary'>Gallary</NavLink></li>
         <li><NavLink to='/contact-us'>Contact Us</NavLink></li>
+        <li><NavLink to='/jobs'>Jobs</NavLink></li>
         <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
     </ul>
   </div>

@@ -6,6 +6,7 @@ import AboutUs from './Components/AboutUs/AboutUs';
 import ContactUs from './Components/ContactUs/ContactUs';
 import Gallary from './Components/Gallary/Gallary';
 import Home from './Components/Home/Home';
+import Jobs from './Components/Jobs/Jobs';
 import Login from './Components/Login/Login';
 import RequireAuth from './Components/Login/RequireAuth';
 import SignUp from './Components/Login/SignUp';
@@ -25,6 +26,7 @@ const App =() => {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/alumnus' element={<RequireAuth><Alumnus/></RequireAuth>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
+        <Route path='/jobs' element={<RequireAuth><Jobs/></RequireAuth>}></Route>
         <Route path='/all-alumnus' element={<AllAlumnus/>}></Route>
         <Route path='*' element={<NotFound/>}></Route>
       </Routes>
