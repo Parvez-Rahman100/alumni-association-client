@@ -4,7 +4,7 @@ const useAlumnus = () => {
     const [alumnus,setAlumnus] = useState([]);
 
     useEffect(()=>{
-        const url = 'http://localhost:5000/alumnus';
+        const url = 'https://alumni-association.herokuapp.com/alumnus';
         fetch(url)
         .then(res => res.json())
         .then(data => setAlumnus(data))
