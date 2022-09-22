@@ -138,11 +138,11 @@ const SignUp = () => {
                                 },
                                 minLength: {
                                     value: 11,
-                                    message: 'Must be 11 characters'
+                                    message: 'Value Must be 11 characters'
                                 },
                                 maxLength: {
                                     value: 11,
-                                    message: 'Must be 11 characters'
+                                    message: 'Value Must be 11 characters'
                                 }
 
                             })} />
