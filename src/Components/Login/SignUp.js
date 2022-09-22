@@ -21,7 +21,7 @@ const SignUp = () => {
 
     let signInError;
 
-    if (loading ||  updating) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
 
@@ -31,30 +31,30 @@ const SignUp = () => {
 
 
     const onSubmit = async (data) => {
-        
+
         try {
-           const url = 'http://localhost:5000/register';
-           const result = await axios.post(url,data)
-           if(result?.data === false){
-            alert('Please provide valid registration number')
-            return;
-            
-           }else{
-            await createUserWithEmailAndPassword(data.email, data.password , data.regNumber);
-            await updateProfile({ displayName: data.name });
-            navigate('/');
-            
-           }
-          
-    } catch (error) {
-           console.log(error);
-        
-       }
+            const url = 'http://localhost:5000/register';
+            const result = await axios.post(url, data)
+            if (result?.data === false) {
+                alert('Please provide valid registration number')
+                return;
+
+            } else {
+                await createUserWithEmailAndPassword(data.email, data.password, data.regNumber);
+                await updateProfile({ displayName: data.name });
+                navigate('/');
+
+            }
+
+        } catch (error) {
+            console.log(error);
+
+        }
     }
 
     return (
         <div className='flex h-screen container mx-auto justify-center text-white backgroundImg items-center'>
-            <div className="card w-96 bg-transparent shadow-xl">
+            <div className="card w-96 bg-text bg-transparent shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -128,29 +128,29 @@ const SignUp = () => {
                             </label>
                         </div>
                         <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                            <span className="label-text text-white">Your Reg Number</span>
-                        </label>
-                    <input className="input input-bordered text-black w-full max-w-xs" placeholder="Your Reg Number" type="number" {...register("regNumber", {
-                         required: {
-                            value: true,
-                            message: 'Reg Number is Required'
-                        },
-                        minLength: {
-                            value: 11,
-                            message: 'Must be 11 characters'
-                        },
-                        maxLength: {
-                            value: 11,
-                            message: 'Must be 11 characters'
-                        }
-                         
-                         })} />
-                    <label className="label">
-                            {errors.regNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
-                            {errors.regNumber?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
-                        </label>
-                    </div>
+                            <label className="label">
+                                <span className="label-text text-white">Your Reg Number</span>
+                            </label>
+                            <input className="input input-bordered text-black w-full max-w-xs" placeholder="Your Reg Number" type="number" {...register("regNumber", {
+                                required: {
+                                    value: true,
+                                    message: 'Reg Number is Required'
+                                },
+                                minLength: {
+                                    value: 11,
+                                    message: 'Must be 11 characters'
+                                },
+                                maxLength: {
+                                    value: 11,
+                                    message: 'Must be 11 characters'
+                                }
+
+                            })} />
+                            <label className="label">
+                                {errors.regNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
+                                {errors.regNumber?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
+                            </label>
+                        </div>
 
                         {signInError}
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
