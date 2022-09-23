@@ -5,7 +5,7 @@ import logo from '../../Assests/logo.png';
 const Footer = () => {
     return (
 
-        <footer className="footer items-center p-4 bg-neutral text-neutral-content">
+        <footer className="footer items-center p-4 bg-accent text-neutral-content">
             <div className="items-center grid-flow-col">
                 <img style={{ width: '50px', height: '50px' }} alt='alumniLogo' src={logo} />
                 <p> &copy; Copyright 2022-2023, Alumni Association , All Rights Reserved</p>

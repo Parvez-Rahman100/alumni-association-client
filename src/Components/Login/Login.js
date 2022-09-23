@@ -42,6 +42,7 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password, data.regNumber);
     }
 
+
     return (
         <div className='flex h-screen container mx-auto justify-center backgroundImg items-center'>
             <div className="card w-96 bg-text bg-transparent text-white shadow-2xl">
@@ -122,10 +123,9 @@ const Login = () => {
                                 {errors.regNumber?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
                             </label>
                         </div>
-
-
                         <input className='btn w-full max-w-xs btn-primary text-white' type="submit" value="Login" />
                     </form>
+                    <Link to='/reset-password'>Forget Password?</Link>
                 </div>
                 <p>New to Alumni Association? <Link to='/signup' className=' text-secondary mx-2
                 '> Signup Now</Link> </p>

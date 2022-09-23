@@ -9,6 +9,7 @@ import Home from './Components/Home/Home';
 import Jobs from './Components/Jobs/Jobs';
 import Login from './Components/Login/Login';
 import RequireAuth from './Components/Login/RequireAuth';
+import ResetPassword from './Components/Login/ResetPassword';
 import SignUp from './Components/Login/SignUp';
 import Footer from './Components/Shared/Footer';
 import Navbar from './Components/Shared/NavBar';
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/jobs' element={<RequireAuth><Jobs /></RequireAuth>}></Route>
           <Route path='/all-alumnus' element={<AllAlumnus />}></Route>
+          <Route path='/reset-password' element={<ResetPassword />}></Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
         <Footer />
