@@ -39,7 +39,7 @@ const Login = () => {
 
     const onSubmit = data => {
         console.log(data);
-        signInWithEmailAndPassword(data.email, data.password, data.regNumber);
+        signInWithEmailAndPassword(data.email, data.password);
     }
 
 
@@ -96,31 +96,6 @@ const Login = () => {
                             <label className="label">
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                            </label>
-                        </div>
-
-                        <div className="form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text text-white">Your Reg Number</span>
-                            </label>
-                            <input className="input input-bordered text-black w-full max-w-xs" placeholder="Your Reg Number" type="number" {...register("regNumber", {
-                                required: {
-                                    value: true,
-                                    message: 'Reg Number is Required'
-                                },
-                                minLength: {
-                                    value: 11,
-                                    message: 'Must be 11 characters'
-                                },
-                                maxLength: {
-                                    value: 11,
-                                    message: 'Must be 11 characters'
-                                }
-
-                            })} />
-                            <label className="label">
-                                {errors.regNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
-                                {errors.regNumber?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
                             </label>
                         </div>
                         <input className='btn w-full max-w-xs btn-primary text-white' type="submit" value="Login" />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const ResetPassword = () => {
@@ -34,7 +35,7 @@ const ResetPassword = () => {
                 className=' my-3 btn btn-primary'
                 onClick={async () => {
                     await sendPasswordResetEmail(email);
-                    alert('Please Check Your Email');
+                    toast.success('Password Reset Link Sent To Your Email')
                 }}
             >
                 Reset password

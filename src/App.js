@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import AllAlumnus from './Alumni/AllAlumnus';
 import Alumnus from './Alumni/Alumnus';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AboutUs from './Components/AboutUs/AboutUs';
 import ContactUs from './Components/ContactUs/ContactUs';
 import Gallary from './Components/Gallary/Gallary';
@@ -34,6 +36,7 @@ const App = () => {
         </Routes>
         <Footer />
       </Navbar>
+      <ToastContainer />
     </div>
   );
 }

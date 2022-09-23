@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -36,14 +37,14 @@ const SignUp = () => {
             const url = 'https://alumni-association.herokuapp.com/register';
             const result = await axios.post(url, data)
             if (result?.data === false) {
-                alert('Please provide valid registration number')
+                toast.error('Please provide valid registration number');
                 return;
 
             } else {
                 await createUserWithEmailAndPassword(data.email, data.password, data.regNumber);
                 await updateProfile({ displayName: data.name });
                 navigate('/');
-
+                toast.success('Successfully Registered')
             }
 
         } catch (error) {
