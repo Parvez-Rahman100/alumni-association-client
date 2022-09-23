@@ -3,6 +3,7 @@ import Alumni from './Alumni';
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
 import useAlumnus from '../hooks/useAlumnus';
+import Loading from '../Components/Shared/Loading';
 
 const Alumnus = () => {
   const [alumnus] = useAlumnus();
