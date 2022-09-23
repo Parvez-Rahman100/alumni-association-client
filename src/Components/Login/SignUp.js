@@ -33,7 +33,7 @@ const SignUp = () => {
     const onSubmit = async (data) => {
 
         try {
-            const url = 'http://localhost:5000/register';
+            const url = 'https://alumni-association.herokuapp.com/register';
             const result = await axios.post(url, data)
             if (result?.data === false) {
                 alert('Please provide valid registration number')
