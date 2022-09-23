@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Alumni from './Alumni';
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
-import useAlumnus from '../hooks/useAlumnus';
-import Loading from '../Components/Shared/Loading';
+import useAlumnus from '../../hooks/useAlumnus';
+
 
 const Alumnus = () => {
   const [alumnus] = useAlumnus();

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Job = ({ job }) => {
-    console.log(job);
     const { description, position, company, name } = job;
     return (
         <div className=' my-10'>

@@ -68,9 +68,9 @@ const Navbar = ({ children }) => {
           <div class='flex-none hidden lg:block'>
             <ul class='menu menu-horizontal gap-x-2'>
               <li>
-                <NavLink to='/' className='rounded-lg'>
+                <Link to='/' className='rounded-lg'>
                   Home
-                </NavLink>
+                </Link>
               </li>
               <li>
                 <NavLink to='/about-us' className='rounded-lg'>
@@ -97,6 +97,13 @@ const Navbar = ({ children }) => {
                   Contact
                 </NavLink>
               </li>
+              {
+                user && <li>
+                  <NavLink to='/dashboard' className='rounded-lg'>
+                    Dashboard
+                  </NavLink>
+                </li>
+              }
               <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
               <label class='swap swap-rotate'>
                 <input type='checkbox' onClick={() => setDark(!dark)} />
@@ -126,9 +133,9 @@ const Navbar = ({ children }) => {
         <label for='my-drawer-3' class='drawer-overlay'></label>
         <ul class='menu p-4 overflow-y-auto w-80 bg-base-100'>
           <li>
-            <NavLink to='/' className='rounded-lg'>
+            <Link to='/' className='rounded-lg'>
               Home
-            </NavLink>
+            </Link>
           </li>
           <li>
             <NavLink to='/about-us' className='rounded-lg'>
@@ -155,6 +162,13 @@ const Navbar = ({ children }) => {
               Contact
             </NavLink>
           </li>
+          {
+            user && <li>
+              <NavLink to='/dashboard' className='rounded-lg'>
+                Dashboard
+              </NavLink>
+            </li>
+          }
           <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
           <div
             tabindex='0'

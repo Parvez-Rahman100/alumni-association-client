@@ -5,7 +5,6 @@ import { useState } from 'react';
 const useJobs = () => {
 
     const [jobs, setJobs] = useState([]);
-    console.log("jobs", jobs);
 
     useEffect(() => {
         const url = 'https://alumni-association.herokuapp.com/jobs';

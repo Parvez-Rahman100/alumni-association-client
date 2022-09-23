@@ -11,10 +11,10 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 const Gallary = () => {
-    return (
-        <div>
-            <h1 className=' text-center text-5xl galdenoFont font-bold my-8'>Gallary</h1>
-            <Swiper
+  return (
+    <div>
+      <h1 className=' text-center text-5xl galdenoFont font-bold my-8'>Gallary</h1>
+      <Swiper
         slidesPerView={3}
         spaceBetween={30}
         slidesPerGroup={3}
@@ -31,8 +31,8 @@ const Gallary = () => {
         <SwiperSlide><img src={slider2} alt='slider2'></img></SwiperSlide>
         <SwiperSlide><img src={slider3} alt='slider3'></img></SwiperSlide>
       </Swiper>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Gallary;

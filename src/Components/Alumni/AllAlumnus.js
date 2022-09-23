@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Loading from '../Components/Shared/Loading';
-import useAlumnus from '../hooks/useAlumnus';
-import Alumni from './Alumni';
+import Loading from '../Shared/Loading';
+import useAlumnus from '../../hooks/useAlumnus';
+import Alumni from '../Alumni/Alumni';
 
 const AllAlumnus = () => {
   const [alumnus] = useAlumnus();

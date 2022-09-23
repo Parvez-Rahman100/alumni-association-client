@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import AllAlumnus from './Alumni/AllAlumnus';
-import Alumnus from './Alumni/Alumnus';
+import AllAlumnus from './Components/Alumni/AllAlumnus';
+import Alumnus from './Components/Alumni/Alumnus';
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,6 +16,10 @@ import SignUp from './Components/Login/SignUp';
 import Footer from './Components/Shared/Footer';
 import Navbar from './Components/Shared/NavBar';
 import NotFound from './Components/Shared/NotFound';
+import Dashboard from './Components/Dashboard/Dashboard';
+import MyProfile from './Components/Dashboard/MyProfile';
+import MySecurity from './Components/Dashboard/MySecurity';
+
 
 const App = () => {
   return (
@@ -32,6 +36,10 @@ const App = () => {
           <Route path='/jobs' element={<RequireAuth><Jobs /></RequireAuth>}></Route>
           <Route path='/all-alumnus' element={<AllAlumnus />}></Route>
           <Route path='/reset-password' element={<ResetPassword />}></Route>
+          <Route path='/dashboard' element={<Dashboard />}>
+            <Route index element={<MyProfile />}></Route>
+            <Route path='my-security' element={<MySecurity />}></Route>
+          </Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
         <Footer />
