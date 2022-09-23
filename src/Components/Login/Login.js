@@ -124,10 +124,11 @@ const Login = () => {
                         </div>
 
 
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
+                        <input className='btn w-full max-w-xs btn-primary text-white' type="submit" value="Login" />
                     </form>
                 </div>
-                <p>New to Alumni Association? <Link to='/signup' className=' text-gray-900'> Signup Now</Link> </p>
+                <p>New to Alumni Association? <Link to='/signup' className=' text-secondary mx-2
+                '> Signup Now</Link> </p>
             </div>
         </div >
     );
