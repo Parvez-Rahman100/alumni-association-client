@@ -36,7 +36,7 @@ const App = () => {
           <Route path='/jobs' element={<RequireAuth><Jobs /></RequireAuth>}></Route>
           <Route path='/all-alumnus' element={<AllAlumnus />}></Route>
           <Route path='/reset-password' element={<ResetPassword />}></Route>
-          <Route path='/dashboard' element={<Dashboard />}>
+          <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
             <Route index element={<MyProfile />}></Route>
             <Route path='my-security' element={<MySecurity />}></Route>
           </Route>

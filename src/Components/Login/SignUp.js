@@ -8,6 +8,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const SignUp = () => {
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         createUserWithEmailAndPassword,
@@ -17,7 +18,7 @@ const SignUp = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-
+    // const imgStorageKey = 'bad38deab47996eefced5e1ff3248e47';
     const navigate = useNavigate();
 
     let signInError;
@@ -32,6 +33,8 @@ const SignUp = () => {
 
 
     const onSubmit = async (data) => {
+        console.log(data);
+
 
         try {
             const url = 'https://alumni-association.herokuapp.com/register';
@@ -150,6 +153,21 @@ const SignUp = () => {
                             <label className="label">
                                 {errors.regNumber?.type === 'required' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
                                 {errors.regNumber?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
+                            </label>
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text text-white">Upload Your Image</span>
+                            </label>
+                            <input className="input input-bordered text-black w-full max-w-xs" placeholder="Your Reg Number" type="file" {...register("photo", {
+                                required: {
+                                    value: true,
+                                    message: 'Photo must be Required'
+                                }
+
+                            })} />
+                            <label className="label">
+                                {errors.photo?.type === 'required' && <span className="label-text-alt text-red-500">{errors.photo.message}</span>}
                             </label>
                         </div>
 
