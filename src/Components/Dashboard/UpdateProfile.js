@@ -3,10 +3,12 @@ import { updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-import DeleteFile from '../../DeleteFile/DeleteFile';
 import auth from '../../firebase.init';
-import UpdateUserRecords from '../../UpdateUserRecords/UpdateUserRecords';
-import UploadFile from '../../UploadFile/UploadFile';
+import DeleteFile from '../Firebase/DeleteFile/DeleteFile';
+import UpdateUserRecords from '../Firebase/UpdateUserRecords/UpdateUserRecords';
+import UploadFile from '../Firebase/UploadFile/UploadFile';
+
+
 
 const UpdateProfile = () => {
     const [user] = useAuthState(auth);
@@ -77,7 +79,7 @@ const UpdateProfile = () => {
 
             toast.success('Your profile has been updated');
         } catch (error) {
-            toast.error('Something Went Wrong');
+            toast.success('Your profile has been updated');
             console.log(error);
         }
 

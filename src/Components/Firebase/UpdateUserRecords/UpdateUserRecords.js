@@ -6,7 +6,7 @@ import {
     updateDoc,
     where,
 } from 'firebase/firestore';
-import { db } from '../firebase.init';
+import { db } from '../../../firebase.init';
 
 const UpdateUserRecords = (collectionName, uid, updatedObj) => {
     return new Promise(async (resolve, reject) => {

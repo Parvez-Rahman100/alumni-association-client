@@ -1,5 +1,5 @@
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import { storage } from '../firebase.init';
+import { storage } from '../../../firebase.init';
 
 const UploadFile = (file, filePath) => {
     return new Promise(async (resolve, reject) => {
