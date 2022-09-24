@@ -1,75 +1,133 @@
-import { success } from 'daisyui/src/colors';
+import { uuidv4 } from '@firebase/util';
+import { updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useAuthState, useUpdatePassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import DeleteFile from '../../DeleteFile/DeleteFile';
 import auth from '../../firebase.init';
-import Loading from '../Shared/Loading';
+import UpdateUserRecords from '../../UpdateUserRecords/UpdateUserRecords';
+import UploadFile from '../../UploadFile/UploadFile';
 
 const UpdateProfile = () => {
     const [user] = useAuthState(auth);
-    const imgStorageKey = 'bad38deab47996eefced5e1ff3248e47';
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [name, setName] = useState(user?.displayName);
+    const [file, setFile] = useState(null);
+    const [photoURL, setPhotoURL] = useState(user?.photoURL)
+
+    // const imgStorageKey = 'bad38deab47996eefced5e1ff3248e47';
+    // const { register, formState: { errors }, handleSubmit } = useForm();
 
 
 
 
-    const [displayName, setDisplayName] = useState('');
-    const [updateProfile, profileUpdating, profileError] = useUpdateProfile(auth);
+    // const [displayName, setDisplayName] = useState('');
+    // const [photoURL, setPhotoURL] = useState('');
+    // const [updateProfile, profileUpdating, profileError] = useUpdateProfile(auth);
 
-    if (profileError) {
-        return (
-            toast.error('Something Went Wrong')
-        );
-    }
-    if (profileUpdating) {
-        return <Loading />
-    }
-
-    const onSubmit = data => {
-        const image = data.photo[0];
-        const formData = new FormData();
-        formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
+    // if (profileError) {
+    //     return (
+    //         toast.error('Something Went Wrong')
+    //     );
+    // }
+    // if (profileUpdating) {
+    //     return <Loading />
+    // }
 
 
-        fetch(url, {
-            method: 'POST',
-            body: formData,
-        })
-            .then(res => res.json())
-            .then(result => {
-                if (result.success) {
-                    const img = result.data.url;
-                    const users = {
-                        name: user.displayName,
-                        email: user.email,
-                        img: img,
+    const handleChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setFile(file);
+            setPhotoURL(URL.createObjectURL(file));
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        let userObj = { displayName: name };
+        let imagesObj = { uName: name };
+        try {
+            if (file) {
+                const imageName = uuidv4() + '.' + file?.name?.split('.')?.pop();
+                const url = await UploadFile(
+                    file,
+                    `profile/${user?.uid}/${imageName}`
+                );
+
+                if (user?.photoURL) {
+                    const prevImage = user?.photoURL
+                        ?.split(`${user?.uid}%2F`)[1]
+                        .split('?')[0];
+                    if (prevImage) {
+                        try {
+                            await DeleteFile(`profile/${user?.uid}/${prevImage}`);
+                        } catch (error) {
+                            console.log(error);
+                        }
                     }
-                    fetch('https://alumni-association.herokuapp.com/photos', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify(users)
-                    })
-                        .then(res => res.json())
-                        .then(inserted => {
-                            console.log('inserted', inserted);
-                            if (success) {
-                                toast.success('Photo Successfully Uploaded')
-                            }
-                            else {
-                                toast.error('Failed to upload your photo')
-                            }
-                        })
                 }
-            })
+
+                userObj = { ...userObj, photoURL: url };
+                imagesObj = { ...imagesObj, uPhoto: url };
+            }
+
+            await updateProfile(user, userObj);
+            await UpdateUserRecords('gallery', user?.uid, imagesObj);
+
+            toast.success('Your profile has been updated');
+        } catch (error) {
+            toast.error('Something Went Wrong');
+            console.log(error);
+        }
 
     };
+
+
+    // const onSubmit = data => {
+    //     const image = data.photo[0];
+    //     const formData = new FormData();
+    //     formData.append('image', image);
+    //     const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
+
+
+    //     fetch(url, {
+    //         method: 'POST',
+    //         body: formData,
+    //     })
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             if (result.success) {
+    //                 const img = result.data.url;
+    //                 const users = {
+    //                     name: user.displayName,
+    //                     email: user.email,
+    //                     img: img,
+    //                 }
+    //                 fetch('https://alumni-association.herokuapp.com/photos', {
+    //                     method: 'POST',
+    //                     headers: {
+    //                         'content-type': 'application/json'
+    //                     },
+    //                     body: JSON.stringify(users)
+    //                 })
+    //                     .then(res => res.json())
+    //                     .then(inserted => {
+    //                         console.log('inserted', inserted);
+    //                         if (success) {
+    //                             toast.success('Photo Successfully Uploaded')
+    //                         }
+    //                         else {
+    //                             toast.error('Failed to upload your photo')
+    //                         }
+    //                     })
+    //             }
+    //         })
+
+    // };
     return (
-        <div>
-            <div className=' mt-10'>
+        <div className=' my-12'>
+            {/* <div className=' mt-10'>
                 <input
                     className=' border border-black py-2 rounded-lg px-7'
                     placeholder='Update Your Name'
@@ -79,6 +137,15 @@ const UpdateProfile = () => {
                     required
                 />
                 <br />
+                <br />
+                <input
+                    className=' border border-black py-2 rounded-lg px-7'
+                    placeholder='Put your photo url'
+                    type="photoURL"
+                    value={photoURL}
+                    onChange={(e) => setPhotoURL(e.target.value)}
+                />
+                <br />
                 <button
                     className=' btn btn-outline my-4'
                     onClick={async () => {
@@ -86,7 +153,7 @@ const UpdateProfile = () => {
                         toast.success('Updated Name');
                     }}
                 >
-                    Update Name
+                    Update Profile
                 </button>
             </div>
             <div>
@@ -114,7 +181,53 @@ const UpdateProfile = () => {
                     </div>
                     <input className=' btn btn-outline' type="submit" />
                 </form>
-            </div>
+            </div> */}
+
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <p>
+                        You can update your profile by updating these fields:
+                    </p>
+                    <label className=' my-5' htmlFor='profileName'> Update Profile Name</label>
+                    <br />
+                    <input
+                        className=' px-3 my-10 border text-black border-black rounded-lg'
+                        autoFocus
+                        margin="normal"
+                        id="profileName"
+                        type="text"
+                        inputProps={{ minLength: 2 }}
+                        fullWidth
+                        variant="standard"
+                        value={name || ''}
+                        required
+                        onChange={(e) => setName(e.target.value)}
+                    />
+
+                    <label htmlFor="profilePhoto">
+                        <input
+                            accept="image/*"
+                            id="profilePhoto"
+                            type="file"
+                            style={{ display: 'none' }}
+                            onChange={handleChange}
+                        />
+                        <img
+                            style={{ width: '200px', height: '200px' }}
+                            className=' rounded-full cursor-pointer'
+                            alt='avater'
+                            src={photoURL}
+
+                        />
+                    </label>
+                    <p className=' font-bold my-4'>Click or press on the pic to change your profile pic.</p>
+                </div>
+                <div className=' my-5'>
+                    <button variant="contained" className=' btn btn-outline' type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
 
         </div>
     );
