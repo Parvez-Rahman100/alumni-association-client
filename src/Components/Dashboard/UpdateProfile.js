@@ -1,14 +1,30 @@
 import { success } from 'daisyui/src/colors';
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import React, { useState } from 'react';
+import { useAuthState, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const UpdateProfile = () => {
     const [user] = useAuthState(auth);
     const imgStorageKey = 'bad38deab47996eefced5e1ff3248e47';
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+
+
+    const [displayName, setDisplayName] = useState('');
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
+
+    if (error) {
+        return (
+            toast.error('Something Went Wrong')
+        );
+    }
+    if (updating) {
+        return <Loading />
+    }
+
     const onSubmit = data => {
         const image = data.photo[0];
         const formData = new FormData();
@@ -52,6 +68,26 @@ const UpdateProfile = () => {
     };
     return (
         <div>
+            <div className=' mt-10'>
+                <input
+                    className=' border border-black py-2 rounded-lg px-7'
+                    placeholder='Update Your Name'
+                    type="displayName"
+                    value={displayName}
+                    onChange={(e) => setDisplayName(e.target.value)}
+                    required
+                />
+                <br />
+                <button
+                    className=' btn btn-primary my-4'
+                    onClick={async () => {
+                        await updateProfile({ displayName });
+                        toast.success('Updated Name');
+                    }}
+                >
+                    Update Name
+                </button>
+            </div>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control w-full max-w-xs">
@@ -62,7 +98,13 @@ const UpdateProfile = () => {
                             required: {
                                 value: true,
                                 message: 'Photo must be Required'
-                            }
+                            },
+                            validate: {
+                                lessThan10MB: (files) => files[0]?.size < 10000000 || "Max 10MB",
+                                acceptedFormats: (files) =>
+                                    ["image/jpeg", "image/png", "image/gif"].includes(files[0]?.type) ||
+                                    "Only PNG, JPEG e GIF",
+                            },
 
                         })} />
                         <label className="label">
@@ -72,6 +114,7 @@ const UpdateProfile = () => {
                     <input className=' btn btn-primary' type="submit" />
                 </form>
             </div>
+
         </div>
     );
 };
