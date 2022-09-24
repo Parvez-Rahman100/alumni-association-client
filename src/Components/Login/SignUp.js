@@ -155,21 +155,6 @@ const SignUp = () => {
                                 {errors.regNumber?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
                             </label>
                         </div>
-                        <div className="form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text text-white">Upload Your Image</span>
-                            </label>
-                            <input className="input input-bordered text-black w-full max-w-xs" placeholder="Your Reg Number" type="file" {...register("photo", {
-                                required: {
-                                    value: true,
-                                    message: 'Photo must be Required'
-                                }
-
-                            })} />
-                            <label className="label">
-                                {errors.photo?.type === 'required' && <span className="label-text-alt text-red-500">{errors.photo.message}</span>}
-                            </label>
-                        </div>
 
                         {signInError}
                         <input className='btn w-full max-w-xs btn-primary text-white' type="submit" value="Sign Up" />

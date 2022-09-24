@@ -1,6 +1,6 @@
 import { success } from 'daisyui/src/colors';
 import React, { useState } from 'react';
-import { useAuthState, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useUpdatePassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
@@ -13,15 +13,16 @@ const UpdateProfile = () => {
 
 
 
-    const [displayName, setDisplayName] = useState('');
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
 
-    if (error) {
+    const [displayName, setDisplayName] = useState('');
+    const [updateProfile, profileUpdating, profileError] = useUpdateProfile(auth);
+
+    if (profileError) {
         return (
             toast.error('Something Went Wrong')
         );
     }
-    if (updating) {
+    if (profileUpdating) {
         return <Loading />
     }
 
@@ -79,7 +80,7 @@ const UpdateProfile = () => {
                 />
                 <br />
                 <button
-                    className=' btn btn-primary my-4'
+                    className=' btn btn-outline my-4'
                     onClick={async () => {
                         await updateProfile({ displayName });
                         toast.success('Updated Name');
@@ -111,7 +112,7 @@ const UpdateProfile = () => {
                             {errors.photo?.type === 'required' && <span className="label-text-alt text-red-500">{errors.photo.message}</span>}
                         </label>
                     </div>
-                    <input className=' btn btn-primary' type="submit" />
+                    <input className=' btn btn-outline' type="submit" />
                 </form>
             </div>
 
