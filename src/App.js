@@ -18,7 +18,7 @@ import Navbar from './Components/Shared/NavBar';
 import NotFound from './Components/Shared/NotFound';
 import Dashboard from './Components/Dashboard/Dashboard';
 import MyProfile from './Components/Dashboard/MyProfile';
-import MySecurity from './Components/Dashboard/MySecurity';
+import UpdateProfile from './Components/Dashboard/UpdateProfile';
 
 
 const App = () => {
@@ -38,7 +38,7 @@ const App = () => {
           <Route path='/reset-password' element={<ResetPassword />}></Route>
           <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
             <Route index element={<MyProfile />}></Route>
-            <Route path='my-security' element={<MySecurity />}></Route>
+            <Route path='update-profile' element={<UpdateProfile />}></Route>
           </Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
