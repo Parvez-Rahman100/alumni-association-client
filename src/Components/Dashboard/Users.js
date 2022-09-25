@@ -6,6 +6,7 @@ const Users = () => {
 
     const [infos] = useInfo();
 
+
     return (
         <div className=' my-12'>
             <div className="overflow-x-auto w-full">

@@ -58,7 +58,7 @@ const SignUp = () => {
 
 
         try {
-            const url = 'http://https://alumni-association.herokuapp.com/users';
+            const url = 'https://alumni-association.herokuapp.com/users';
             const result = await axios.post(url, email)
             if (result?.data) {
                 console.log(result);

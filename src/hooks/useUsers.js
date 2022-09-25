@@ -4,7 +4,7 @@ const useUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        const url = 'http://https://alumni-association.herokuapp.com/users';
+        const url = 'https://alumni-association.herokuapp.com/users';
         fetch(url)
             .then(res => res.json())
             .then(data => setUsers(data))
