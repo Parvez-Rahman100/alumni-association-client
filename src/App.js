@@ -19,6 +19,8 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import MyProfile from './Components/Dashboard/MyProfile';
 import UpdateProfile from './Components/Dashboard/UpdateProfile';
 import Users from './Components/Dashboard/Users';
+import AllJobs from './Components/Dashboard/AllJobs';
+import ManagePhotos from './Components/Dashboard/ManagePhotos';
 
 
 const App = () => {
@@ -39,6 +41,8 @@ const App = () => {
             <Route index element={<MyProfile />}></Route>
             <Route path='update-profile' element={<UpdateProfile />}></Route>
             <Route path='all-users' element={<Users />}></Route>
+            <Route path='all-jobs' element={<AllJobs />}></Route>
+            <Route path='manage-photos' element={<ManagePhotos />}></Route>
           </Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>

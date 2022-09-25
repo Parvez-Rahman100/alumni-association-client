@@ -7,7 +7,7 @@ const Gallary = () => {
     const [photos] = usePhotos();
     return (
         <div className=' py-20 container mx-auto'>
-            <h1 className=' py-14 text-center galadaFonts text-3xl my-4 aluniBackground'>Welcome to Tejgaon College Gallery</h1>
+            <h1 className=' py-14 text-black text-center galadaFonts text-3xl my-4 aluniBackground'>Welcome to Tejgaon College Gallery</h1>
             {photos?.length ? (
                 <div className='grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-12'>
                     {

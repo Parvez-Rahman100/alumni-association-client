@@ -32,7 +32,7 @@ const Jobs = () => {
     };
     return (
         <>
-            <div className=' aluniBackground container mx-auto'>
+            <div className='  container mx-auto'>
                 <p className=' text-center text-black text-3xl aluniBackground py-20 font-bold galdenoFont'>Jobs List</p>
                 <div className=' text-center my-3'>
 
