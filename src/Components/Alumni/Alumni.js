@@ -6,7 +6,7 @@ const Alumni = ({ alumni }) => {
     return (
         <div>
             <div className="card max-w-lg  p-8 bg-cyan-100 shadow-xl rounded-xl">
-                <div className="card-body">
+                <div className="card-body text-black">
                     <div className='flex justify-between items-center '>
                         <h2 className="card-title"> {alumni_name}</h2>
                     </div>
