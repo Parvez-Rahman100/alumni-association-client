@@ -18,7 +18,6 @@ const SignUp = () => {
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    // const imgStorageKey = 'bad38deab47996eefced5e1ff3248e47';
     const navigate = useNavigate();
 
     let signInError;
@@ -33,8 +32,6 @@ const SignUp = () => {
 
 
     const onSubmit = async (data) => {
-        console.log(data);
-
 
         try {
             const url = 'https://alumni-association.herokuapp.com/register';

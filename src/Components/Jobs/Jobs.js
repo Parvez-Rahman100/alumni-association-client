@@ -49,6 +49,7 @@ const Jobs = () => {
                                     </label>
                                     <input
                                         type="text"
+                                        required
                                         placeholder="Your Name"
                                         className="input input-bordered text-black w-full max-w-xs"
                                         {...register("name", {
@@ -65,6 +66,7 @@ const Jobs = () => {
                                     </label>
                                     <input
                                         type="text"
+                                        required
                                         placeholder="Job Position"
                                         className="input input-bordered text-black w-full max-w-xs"
                                         {...register("position", {
@@ -80,6 +82,7 @@ const Jobs = () => {
                                         <span className="label-text text-white">Company Name</span>
                                     </label>
                                     <input
+                                        required
                                         type="text"
                                         placeholder="Company Name"
                                         className="input input-bordered text-black w-full max-w-xs"
@@ -96,6 +99,7 @@ const Jobs = () => {
                                         <span className="label-text text-white">Description</span>
                                     </label>
                                     <textarea
+                                        required
                                         type="text"
                                         placeholder="Job Description"
                                         className="input input-bordered text-black w-full max-w-xs"
@@ -108,7 +112,7 @@ const Jobs = () => {
                                     />
                                 </div>
                                 <div className="modal-action">
-                                    <label htmlFor="my-modal-6" className="btn btn-error">Cancle</label>
+                                    <label htmlFor="my-modal-6" className="btn btn-error">Cancel</label>
                                     <input className=' btn btn-success' type="submit" />
                                 </div>
                             </form>

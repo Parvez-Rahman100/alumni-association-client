@@ -5,7 +5,6 @@ import auth from '../../firebase.init';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-    console.log(user);
 
     return (
         <div className=' flex justify-center items-center'>

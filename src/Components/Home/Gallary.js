@@ -13,7 +13,7 @@ import { Pagination, Navigation } from "swiper";
 const Gallary = () => {
   return (
     <div>
-      <h1 className=' text-center text-5xl galdenoFont font-bold my-8'>Gallary</h1>
+      <h1 className=' text-center text-5xl galdenoFont font-bold my-8'>Gallery</h1>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

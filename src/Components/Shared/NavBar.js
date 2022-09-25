@@ -88,8 +88,8 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/gallary' className='rounded-lg'>
-                  Gallary
+                <NavLink to='/gallery' className='rounded-lg'>
+                  Gallery
                 </NavLink>
               </li>
               <li>
@@ -153,8 +153,8 @@ const Navbar = ({ children }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/gallary' className='rounded-lg'>
-              Gallary
+            <NavLink to='/gallery' className='rounded-lg'>
+              Gallery
             </NavLink>
           </li>
           <li>
