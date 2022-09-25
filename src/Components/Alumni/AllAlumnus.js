@@ -10,7 +10,7 @@ const AllAlumnus = () => {
   return (
     <>
       <div className=' aluniBackground  container mx-auto'>
-        <p className=' text-center aluniBackground py-20 text-3xl font-bold galdenoFont'>Alumnus/Alumnae List</p>
+        <p className=' text-center text-black aluniBackground py-20 text-3xl font-bold galdenoFont'>Alumnus/Alumnae List</p>
         <input onChange={(e) => setSearchTitle(e.target.value)} className=' px-4 block mx-auto w-72 h-12 my-7 border border-zinc-900 rounded-xl' type="text" placeholder="Search..." />
         {alumnus?.length ? (<div className='grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4'>
           {

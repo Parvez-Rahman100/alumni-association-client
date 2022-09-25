@@ -5,7 +5,6 @@ import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AboutUs from './Components/AboutUs/AboutUs';
-import ContactUs from './Components/ContactUs/ContactUs';
 import Gallary from './Components/Gallary/Gallary';
 import Home from './Components/Home/Home';
 import Jobs from './Components/Jobs/Jobs';
@@ -29,7 +28,6 @@ const App = () => {
           <Route path='/' element={<Home />}></Route>
           <Route path='about-us' element={<AboutUs />}></Route>
           <Route path='/gallery' element={<Gallary />}></Route>
-          <Route path='/contact-us' element={<ContactUs />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/alumnus' element={<RequireAuth><Alumnus /></RequireAuth>}></Route>
           <Route path='/signup' element={<SignUp />}></Route>

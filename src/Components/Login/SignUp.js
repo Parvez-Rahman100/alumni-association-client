@@ -51,6 +51,14 @@ const SignUp = () => {
             console.log(error);
 
         }
+
+        const url2 = 'http://localhost:5000/users';
+        const result = await axios.post(url2, data)
+        if (result?.data === true) {
+            toast.success('data successfully sent to database');
+            return;
+
+        }
     }
 
     return (
