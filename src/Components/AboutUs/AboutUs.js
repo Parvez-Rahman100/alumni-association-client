@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
     return (
-        <div className='py-20 container mx-auto'>
+        <div className='py-20 container mx-auto text-justify'>
             <h1 className=' py-14 text-center galadaFonts text-3xl mt-4 text-black aluniBackground'>About Tejgaon College</h1>
             <br />
             <h1 className=' text-2xl bg-accent pb-7'>TEJGAON COLLEGE : A BRIEF HISTORY </h1>

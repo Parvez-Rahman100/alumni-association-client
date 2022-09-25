@@ -17,6 +17,7 @@ const Dashboard = () => {
 
                         <li><Link to='/dashboard'>My Profile</Link ></li>
                         <li><Link to='/dashboard/update-profile'>Update Profile</Link ></li>
+                        <li><Link to='/dashboard/all-users'>All Users</Link ></li>
                     </ul>
 
                 </div>

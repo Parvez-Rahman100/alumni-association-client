@@ -7,6 +7,7 @@ import Loading from '../Shared/Loading';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+
 const SignUp = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -33,6 +34,8 @@ const SignUp = () => {
 
     const onSubmit = async (data) => {
 
+        const email = { email: data.email };
+
         try {
             const url = 'https://alumni-association.herokuapp.com/register';
             const result = await axios.post(url, data)
@@ -52,19 +55,33 @@ const SignUp = () => {
 
         }
 
-        const url2 = 'http://localhost:5000/users';
-        const result = await axios.post(url2, data)
-        if (result?.data === true) {
-            toast.success('data successfully sent to database');
-            return;
+
+
+        try {
+            const url = 'http://https://alumni-association.herokuapp.com/users';
+            const result = await axios.post(url, email)
+            if (result?.data) {
+                console.log(result);
+            }
+        } catch (error) {
+
+        }
+
+        try {
+            const url = 'http://https://alumni-association.herokuapp.com/info';
+            const result = await axios.post(url, data)
+            if (result?.data) {
+                console.log(result);
+            }
+        } catch (error) {
 
         }
     }
 
     return (
         <div className='flex h-screen container mx-auto justify-center text-white backgroundImg items-center'>
-            <div className="card w-96 bg-text bg-transparent shadow-xl">
-                <div className="card-body">
+            <div className="card w-96  bg-text bg-transparent shadow-xl">
+                <div className="card-body ">
                     <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -160,9 +177,45 @@ const SignUp = () => {
                                 {errors.regNumber?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
                             </label>
                         </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label" htmlFor='batch'>
+                                <span className="label-text text-white">Your Batch Number</span>
+                            </label>
+                            <input className="input input-bordered text-black w-full max-w-xs" id='batch' placeholder="Your Batch Number" type="text" {...register("batch", {
+                                required: {
+                                    value: true,
+                                    message: 'Batch Number is Required'
+                                },
+                                minLength: {
+                                    value: 3,
+                                    message: 'Value Must be 3 characters'
+                                },
+                                maxLength: {
+                                    value: 3,
+                                    message: 'Value Must be 3 characters'
+                                },
+
+                            })} />
+                            <label className="label">
+                                {errors.batch?.type === 'required' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
+                                {errors.batch?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.regNumber.message}</span>}
+                            </label>
+                        </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label" htmlFor='session'>
+                                <span className="label-text text-white">Your Session</span>
+                            </label>
+                            <input className="input input-bordered text-black w-full max-w-xs" id='batch' placeholder="Your Session" type="text" {...register("session", {
+                                required: {
+                                    value: true,
+                                    message: 'Session Number is Required'
+                                }
+                            })} />
+                        </div>
 
                         {signInError}
-                        <input className='btn w-full max-w-xs btn-primary text-white' type="submit" value="Sign Up" />
+                        <input className='btn w-full max-w-xs btn-primary text-white mt-4' type="submit" value="Sign Up" />
                     </form>
                     <p><small>Already have an account? <Link className='text-secondary mx-3' to="/login">Please login</Link></small></p>
                 </div>

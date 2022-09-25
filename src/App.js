@@ -18,6 +18,7 @@ import NotFound from './Components/Shared/NotFound';
 import Dashboard from './Components/Dashboard/Dashboard';
 import MyProfile from './Components/Dashboard/MyProfile';
 import UpdateProfile from './Components/Dashboard/UpdateProfile';
+import Users from './Components/Dashboard/Users';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
           <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
             <Route index element={<MyProfile />}></Route>
             <Route path='update-profile' element={<UpdateProfile />}></Route>
+            <Route path='all-users' element={<Users />}></Route>
           </Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
