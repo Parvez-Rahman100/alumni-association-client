@@ -48,7 +48,6 @@ const AllJobs = () => {
                                     <td className='text-justify'>{job?.company}</td>
                                     <th>
                                         <button className="btn mx-3 btn-error btn-xs">Delete</button>
-                                        <button className="btn mx-3 btn-success btn-xs" >Make Admin</button>
                                     </th>
                                 </tr>)
                         }
