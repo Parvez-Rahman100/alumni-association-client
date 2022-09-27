@@ -5,7 +5,7 @@ const AboutUs = () => {
         <div className='py-20 container mx-auto text-justify'>
             <h1 className=' py-14 text-center galadaFonts text-3xl mt-4 text-black aluniBackground'>About Tejgaon College</h1>
             <br />
-            <h1 className=' text-2xl bg-accent pb-7'>TEJGAON COLLEGE : A BRIEF HISTORY </h1>
+            <h1 className=' text-2xl bg-accent py-7 pl-4 rounded-2xl'>TEJGAON COLLEGE : A BRIEF HISTORY </h1>
             <div className='grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-2 mt-14 gap-12'>
                 <div>
                     <img className=' rounded-2xl' src='https://i.ibb.co/HdV8dfh/26971589212512391420214397200410084635157n2048x1532.jpg' alt='TejgaonCollegePic' />

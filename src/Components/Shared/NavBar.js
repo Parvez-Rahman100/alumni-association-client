@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import logo from '../../Assests/logo.png';
 import auth from "../../firebase.init";
 
+
 const Navbar = ({ children }) => {
   const [dark, setDark] = useState(false);
   const { pathname } = useLocation();
@@ -42,9 +43,9 @@ const Navbar = ({ children }) => {
               </svg>
             </label>
           )}
-          <div className='flex-1 px-2 mx-2 text-2xl'>
+          <div className='flex-1 px-2 mx-2 text-2xl '>
             <Link to='/' className="btn btn-ghost normal-case text-xl">
-              <img style={{ width: '50px', height: '50px' }} className=' mx-3' src={logo} alt='logo'></img>
+              <img style={{ width: '60px', height: '60px' }} className=' mx-3' src={logo} alt='logo'></img>
               Alumni Association</Link>
           </div>
           <div className='flex-none lg:hidden'>
@@ -99,7 +100,32 @@ const Navbar = ({ children }) => {
                   </NavLink>
                 </li>
               }
-              <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
+              <li class='dropdown dropdown-hover dropdown-end'>
+                <label
+                  tabindex='0'
+                  class='btn btn-primary btn-outline rounded-lg'
+                >
+                  {
+                    user ? (user.displayName) : <Link to='/login'>Login</Link>
+                  }
+                </label>
+                {
+                  user ? (<ul
+                    tabindex='0'
+                    class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
+                  >
+                    <li>
+                      <button className=" btn btn-ghost"><Link to='/dashboard'>My Profile</Link ></button>
+                    </li>
+                    <li>
+                      <li>{user ? <button className="btn btn-ghost" onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+                    </li>
+                  </ul>) : (
+                    <p></p>
+                  )
+                }
+              </li>
+
               <label className='swap swap-rotate'>
                 <input type='checkbox' onClick={() => setDark(!dark)} />
 

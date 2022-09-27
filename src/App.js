@@ -21,6 +21,7 @@ import UpdateProfile from './Components/Dashboard/UpdateProfile';
 import Users from './Components/Dashboard/Users';
 import AllJobs from './Components/Dashboard/AllJobs';
 import ManagePhotos from './Components/Dashboard/ManagePhotos';
+import AlumniDetails from './Components/Alumni/AlumniDetails';
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
           <Route path='/gallery' element={<Gallary />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/alumnus' element={<RequireAuth><Alumnus /></RequireAuth>}></Route>
+          <Route path='/alumni/:alumniId' element={<AlumniDetails />}></Route>
           <Route path='/signup' element={<SignUp />}></Route>
           <Route path='/jobs' element={<RequireAuth><Jobs /></RequireAuth>}></Route>
           <Route path='/all-alumnus' element={<AllAlumnus />}></Route>
