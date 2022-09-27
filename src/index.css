@@ -24,6 +24,11 @@
   max-width: 1280px;
 }
 
+.formBG {
+  background-image: url('../src//Assests/formBG.jpg');
+  background-size: cover;
+}
+
 .backgroundImg {
   background-image: url('./Assests/loginBackground.jpg');
   border-top-left-radius: 20px;
@@ -37,7 +42,7 @@
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
-  padding: 20px;
+  padding: 5px;
   text-align: center;
 }
 

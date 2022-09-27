@@ -39,8 +39,8 @@ const Jobs = () => {
                     <label htmlFor="my-modal-6" className="btn btn-outline modal-button">Post a job opportunity</label>
 
 
-                    <input type="checkbox" id="my-modal-6" className="modal-toggle" />
-                    <div className="modal modal-bottom sm:modal-middle">
+                    <input type="checkbox" id="my-modal-6" className="modal-toggle " />
+                    <div className="modal  modal-bottom sm:modal-middle">
                         <div className="modal-box ">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control w-full max-w-xs">

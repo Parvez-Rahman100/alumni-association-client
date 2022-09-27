@@ -79,8 +79,8 @@ const SignUp = () => {
     }
 
     return (
-        <div className='flex h-screen container mx-auto justify-center text-white backgroundImg items-center'>
-            <div className="card w-96  bg-text bg-transparent shadow-xl">
+        <div className='flex h-screen container my-36 mx-auto justify-center text-white backgroundImg items-center'>
+            <div className="card w-96 bg-text bg-transparent shadow-xl">
                 <div className="card-body ">
                     <h2 className="text-center text-2xl font-bold">Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
