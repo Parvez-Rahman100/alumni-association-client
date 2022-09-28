@@ -13,8 +13,8 @@ const Alumni = ({ alumni }) => {
                         <img className=' w-1/3 mr-2 rounded-full' src={img} alt='alumni pic' />
                         <h2 className="card-title"> {alumni_name}</h2>
                     </div>
-                    <p className=' ml-8 mt-4 font-semibold'>Batch : {batch}</p>
-                    <p className=' ml-8  font-semibold'>Session : {session}</p>
+                    <p className=' ml-8 mt-4 font-bold'>Batch : {batch}</p>
+                    <p className=' ml-8  font-bold'>Session : {session}</p>
 
                 </div>
                 <div className="card-actions justify-end">

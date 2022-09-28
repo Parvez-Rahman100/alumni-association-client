@@ -5,7 +5,7 @@ import { Icon, InlineIcon } from '@iconify/react';
 const Contact = () => {
   return (
     <div id='contact' className="hero min-h-screen bg-base-100">
-      <div className=" flex justify-between items-center gap-64  flex-wrap">
+      <div className=" flex justify-between items-center gap-20">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-green-600">Contact Us</h1>
           <p className="py-4">Always available for work if the right project comes along, Feel free to contact us!</p>

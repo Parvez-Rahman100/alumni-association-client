@@ -93,20 +93,20 @@ const Navbar = ({ children }) => {
                   Gallery
                 </NavLink>
               </li>
-              {
+              {/* {
                 user && <li>
                   <NavLink to='/dashboard' className='rounded-lg'>
                     Dashboard
                   </NavLink>
                 </li>
-              }
+              } */}
               <li class='dropdown dropdown-hover dropdown-end'>
                 <label
                   tabindex='0'
-                  class='btn btn-primary btn-outline rounded-lg'
+
                 >
                   {
-                    user ? (user.displayName) : <Link to='/login'>Login</Link>
+                    user ? <div><img style={{ width: '40px', height: '40px' }} className=' rounded-full' src={user.photoURL} alt='userPhoto' /></div> : <Link to='/login'>Login</Link>
                   }
                 </label>
                 {
@@ -114,6 +114,9 @@ const Navbar = ({ children }) => {
                     tabindex='0'
                     class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
                   >
+                    <li>
+                      <p className=" text-center ml-7 font-bold"> {user?.displayName}</p>
+                    </li>
                     <li>
                       <button className=" btn btn-ghost"><Link to='/dashboard'>My Profile</Link ></button>
                     </li>
