@@ -40,7 +40,7 @@ const ManagePhotos = () => {
                     })
                         .then(res => res.json())
                         .then(inserted => {
-                            console.log('inserted', inserted);
+
                             if (success) {
                                 toast.success('Photo Successfully Uploaded')
                             }

@@ -61,7 +61,7 @@ const SignUp = () => {
             const url = 'https://alumni-association.herokuapp.com/users';
             const result = await axios.post(url, email)
             if (result?.data) {
-                console.log(result);
+
             }
         } catch (error) {
 
@@ -71,7 +71,7 @@ const SignUp = () => {
             const url = 'https://alumni-association.herokuapp.com/info';
             const result = await axios.post(url, data)
             if (result?.data) {
-                console.log(result);
+
             }
         } catch (error) {
 

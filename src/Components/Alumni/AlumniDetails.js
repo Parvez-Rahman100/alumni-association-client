@@ -6,7 +6,6 @@ const AlumniDetails = () => {
 
     const { alumniId } = useParams()
     const [details, setDetails] = useState({})
-    console.log(details);
 
     useEffect(() => {
         const url = `https://alumni-association.herokuapp.com/alumnus/${alumniId}`;

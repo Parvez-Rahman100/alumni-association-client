@@ -15,7 +15,7 @@ const UserRow = ({ info, index }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+
                 toast.success('Successfully Made An Admin')
             })
     }
