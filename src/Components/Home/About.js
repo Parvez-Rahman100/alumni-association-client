@@ -5,8 +5,8 @@ const About = () => {
     return (
         <div className=' mt-16'>
             <div className=' grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-2 gap-4 '>
-                <div style={{ width: 500, height: 500 }}>
-                    <img className=' rounded-3xl' src={homeImg} alt='aboutImg'></img>
+                <div >
+                    <img className=' rounded-3xl md:w-auto' src={homeImg} alt='aboutImg'></img>
                 </div>
                 <div className=' mt-10 '>
                     <h1 className=' galdenoFont text-3xl font-bold' >About Us</h1>
