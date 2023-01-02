@@ -9,7 +9,7 @@ const HeroSection = () => {
                 <p>A case study of CSE Department, Tejgaon College </p>
                 <h1 className=' my-7 galadaFonts text-4xl'>Providing Great Platfrom for Alumni</h1>
             </div>
-            <div >
+            <div className=' ml-3'>
                 <img src={hero} alt='hero'></img>
             </div>
         </div>

@@ -1,20 +1,16 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-
+import { useEffect, useState } from "react";
 
 const useJobs = () => {
+  const [jobs, setJobs] = useState([]);
 
-    const [jobs, setJobs] = useState([]);
+  useEffect(() => {
+    const url = "https://alumni-association-server-56nn.vercel.app/jobs";
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setJobs(data));
+  }, []);
 
-
-    useEffect(() => {
-        const url = 'https://alumni-association.herokuapp.com/jobs';
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setJobs(data))
-    }, [])
-
-    return [jobs];
+  return [jobs];
 };
 
 export default useJobs;
